@@ -1,21 +1,21 @@
-import java.util.Arrays;
+
 import java.util.Random;
 
 public class BubbleSort {
     public static void main(String[] args) {
+
         int[] arr = new int[1000];
         Random random = new Random();
 
+        // Generate 1000 random elements: 0, 1, 2, 3
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(10000);
+            arr[i] = random.nextInt(4);
         }
 
-        System.out.println("Original Array (first 20): "
-                + Arrays.toString(Arrays.copyOf(arr, 20)));
-
+        // Start execution time
         long startTime = System.nanoTime();
 
-        // Bubble Sort
+        // Bubble Sort Algorithm
         for (int i = 0; i < arr.length - 1; i++) {
             boolean swapped = false;
 
@@ -33,14 +33,29 @@ public class BubbleSort {
             }
         }
 
+        // End execution time
         long endTime = System.nanoTime();
         long executionTime = endTime - startTime;
 
-        System.out.println("Sorted Array (first 20): "
-                + Arrays.toString(Arrays.copyOf(arr, 20)));
-        System.out.println("Total elements: " + arr.length);
-        System.out.println("Execution Time: " + executionTime + " nanoseconds");
-        System.out.println("Execution Time: " + executionTime / 1_000_000.0
-                + " milliseconds");
+        // Display output
+        System.out.println("******** Bubble Sort Completed! ********");
+        System.out.println("Total Elements: " + arr.length);
+        System.out.println("Execution time in NanoSeconds: "
+                + executionTime);
+        System.out.println("Execution time in MilliSeconds: "
+                + executionTime / 1_000_000.0);
+
+        System.out.println("******** Sorted Array ********");
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+
+            // Print 30 numbers per line
+            if ((i + 1) % 30 == 0) {
+                System.out.println();
+            }
+        }
+
+        System.out.println();
     }
 }

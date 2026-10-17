@@ -3,7 +3,6 @@ import java.util.Random;
 
 public class MergeSort {
 
-    // Merge two sorted parts
     public static void merge(int[] arr, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
@@ -38,7 +37,6 @@ public class MergeSort {
         }
     }
 
-    // Divide and sort
     public static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
@@ -51,18 +49,17 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-
         int[] arr = new int[1000];
         Random random = new Random();
 
-        // Generate random input
+        // Generate 1000 random numbers from 1 to 1000
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(4);
+            arr[i] = random.nextInt(1000) + 1;
         }
 
         long startTime = System.nanoTime();
 
-        // Merge Sort
+        // Merge Sort Algorithm
         mergeSort(arr, 0, arr.length - 1);
 
         long endTime = System.nanoTime();
@@ -82,7 +79,6 @@ public class MergeSort {
                 System.out.println();
             }
         }
-
         System.out.println();
     }
 }

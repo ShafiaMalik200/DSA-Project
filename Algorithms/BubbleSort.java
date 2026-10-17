@@ -3,16 +3,14 @@ import java.util.Random;
 
 public class BubbleSort {
     public static void main(String[] args) {
-
         int[] arr = new int[1000];
         Random random = new Random();
 
-        // Generate 1000 random elements: 0, 1, 2, 3
+        // Generate 1000 random numbers from 1 to 1000
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(4);
+            arr[i] = random.nextInt(1000) + 1;
         }
 
-        // Start execution time
         long startTime = System.nanoTime();
 
         // Bubble Sort Algorithm
@@ -33,15 +31,12 @@ public class BubbleSort {
             }
         }
 
-        // End execution time
         long endTime = System.nanoTime();
         long executionTime = endTime - startTime;
 
-        // Display output
         System.out.println("******** Bubble Sort Completed! ********");
         System.out.println("Total Elements: " + arr.length);
-        System.out.println("Execution time in NanoSeconds: "
-                + executionTime);
+        System.out.println("Execution time in NanoSeconds: " + executionTime);
         System.out.println("Execution time in MilliSeconds: "
                 + executionTime / 1_000_000.0);
 
@@ -49,13 +44,10 @@ public class BubbleSort {
 
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
-
-            // Print 30 numbers per line
             if ((i + 1) % 30 == 0) {
                 System.out.println();
             }
         }
-
         System.out.println();
     }
 }

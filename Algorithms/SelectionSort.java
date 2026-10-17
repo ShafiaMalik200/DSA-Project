@@ -3,18 +3,17 @@ import java.util.Random;
 
 public class SelectionSort {
     public static void main(String[] args) {
-
         int[] arr = new int[1000];
         Random random = new Random();
 
-        // Generate random input
+        // Generate 1000 random numbers from 1 to 1000
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(4);
+            arr[i] = random.nextInt(1000) + 1;
         }
 
         long startTime = System.nanoTime();
 
-        // Selection Sort
+        // Selection Sort Algorithm
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
 
@@ -46,7 +45,6 @@ public class SelectionSort {
                 System.out.println();
             }
         }
-
         System.out.println();
     }
 }

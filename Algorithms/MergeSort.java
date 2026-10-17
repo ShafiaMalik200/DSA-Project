@@ -1,19 +1,9 @@
-import java.util.Arrays;
+
 import java.util.Random;
 
 public class MergeSort {
 
-    public static void mergeSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = left + (right - left) / 2;
-
-            mergeSort(arr, left, mid);
-            mergeSort(arr, mid + 1, right);
-
-            merge(arr, left, mid, right);
-        }
-    }
-
+    // Merge two sorted parts
     public static void merge(int[] arr, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
@@ -48,16 +38,27 @@ public class MergeSort {
         }
     }
 
+    // Divide and sort
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+
+            merge(arr, left, mid, right);
+        }
+    }
+
     public static void main(String[] args) {
+
         int[] arr = new int[1000];
         Random random = new Random();
 
+        // Generate random input
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(10000);
+            arr[i] = random.nextInt(4);
         }
-
-        System.out.println("Original Array (first 20): "
-                + Arrays.toString(Arrays.copyOf(arr, 20)));
 
         long startTime = System.nanoTime();
 
@@ -67,11 +68,21 @@ public class MergeSort {
         long endTime = System.nanoTime();
         long executionTime = endTime - startTime;
 
-        System.out.println("Sorted Array (first 20): "
-                + Arrays.toString(Arrays.copyOf(arr, 20)));
-        System.out.println("Total elements: " + arr.length);
-        System.out.println("Execution Time: " + executionTime + " nanoseconds");
-        System.out.println("Execution Time: " + executionTime / 1_000_000.0
-                + " milliseconds");
+        System.out.println("******** Merge Sort Completed! ********");
+        System.out.println("Total Elements: " + arr.length);
+        System.out.println("Execution time in NanoSeconds: " + executionTime);
+        System.out.println("Execution time in MilliSeconds: "
+                + executionTime / 1_000_000.0);
+
+        System.out.println("******** Sorted Array ********");
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+            if ((i + 1) % 30 == 0) {
+                System.out.println();
+            }
+        }
+
+        System.out.println();
     }
 }
